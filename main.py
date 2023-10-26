@@ -1,0 +1,3 @@
+import GenericMusicManager
+
+print(GenericMusicManager.mapped_url_sources)
