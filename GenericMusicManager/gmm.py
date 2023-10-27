@@ -26,9 +26,9 @@ class CustomUUIDEncoder(json.JSONEncoder):
         if isinstance(obj, UUID):
             return str(obj)
         elif dataclasses.is_dataclass(obj):
-            ret: dict[str, Any] = obj.__dict__.copy()
+            ret: dict[str, Any] = dataclasses.asdict(obj).copy()
 
-            for k in obj.__dict__.keys():
+            for k in dataclasses.asdict(obj).keys():
                 if k.startswith("_"):
                     ret.pop(k)
             return ret
